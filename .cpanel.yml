@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - echo "Pulling changes..."
+    - /bin/git pull origin main
+    - /usr/local/bin/php /home/sharewar/public_html/artisan migrate --force
