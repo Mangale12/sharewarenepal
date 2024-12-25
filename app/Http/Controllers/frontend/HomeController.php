@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontend;
 use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -29,6 +29,9 @@ class HomeController extends Controller
     }
 
     public function login(){
+        if (Auth::check()) {
+            return redirect()->route('user.account');
+        }
         return view('frontend.login');
     }
 

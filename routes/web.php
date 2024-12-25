@@ -15,14 +15,24 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\frontend\CustommerController;
 use App\Models\Product;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\PaymentController;
 
+Route::get('/payment', function () {
+    return view('frontend.crypto');
+})->name('payment.form');
+Route::post('/create-charge', [PaymentController::class, 'createCharge'])->name('create.charge');
+Route::post('/webhook', [PaymentController::class, 'handleWebhook']);
+Route::get('/check-auth-status', function () {
+    return response()->json(['is_guest' => !auth()->check()]);
+})->name('frontend.check-auth-status');
 Auth::routes();
 Route::get('/clear', [DashboardController::class, 'cache'])->name('cache');
 //socialite
-Route::group(['as' => 'login.', 'prefix' => 'login'], function () {
-    Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('provider');
-    Route::get('/{provider}/callback', [LoginController::class, 'redirectToProviderCallback'])->name('providercallback');
-});
+// Route::group(['as' => 'login.', 'prefix' => 'login'], function () {
+//     Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('provider');
+//     Route::get('/{provider}/callback', [LoginController::class, 'redirectToProviderCallback'])->name('providercallback');
+// });
 
 
 //Multi language
@@ -36,7 +46,7 @@ Route::post('/user/register', [CustommerController::class, 'store'])->name('user
 Route::get('/user/dashboard', [CustommerController::class, 'index'])->middleware('auth')->name('user.index');
 Route::get('/user/wishlist', [CustommerController::class, 'wishlistdata'])->name('user.wishlistdata')->middleware('auth');
 Route::post('/user/wishlist/data', [CustommerController::class, 'wishlistdataget'])->name('user.wishlistdataget')->middleware('auth');
-Route::post('/user/wishlist/store/{product_id}', [CustommerController::class, 'wishlist'])->name('user.wishlist');
+Route::post('/user/wishlist/store/{product_id}', [CustommerController::class, 'wishlist'])->name('user.wishlist.store');
 Route::post('/wishlist/product-remove/{product_id}', [CustommerController::class, 'RemoveWishlist'])->middleware('auth');
 Route::post('/user/coupon/apply', [CustommerController::class, 'applyCoupon']);
 Route::get('/coupons/calculate', [CustommerController::class, 'calculateCoupon']);
@@ -44,11 +54,17 @@ Route::get('/user/coupon-remove', [CustommerController::class, 'couponRemove']);
 
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
-Route::get('wishlist/', [HomeController::class, 'wishlist'])->name('frontend.wishlist');
 Route::get('frontend/login', [HomeController::class, 'login'])->name('frontend.login');
 Route::get('frontend/register', [HomeController::class, 'register'])->name('frontend.register');
-Route::get('frontend/account', [HomeController::class, 'account'])->name('frontend.account');
-Route::get('frontend/cart', [HomeController::class, 'cart'])->name('frontend.cart');
+Route::group(['as' => 'user.', 'prefix' => 'user', 'middleware'=>'auth'], function () {
+    Route::get('user/account', [HomeController::class, 'account'])->name('account');
+    Route::get('wishlist/', [HomeController::class, 'wishlist'])->name('wishlist');
+    Route::get('/cart', [CustommerController::class, 'cart'])->name('cart');
+    Route::post('/cart/data/store/{product_id}', [CustommerController::class, 'addToCart'])->name('cart.store');
+    Route::post('order/sinlge', [CustommerController::class, 'orderSingle'])->name('order.single');
+    Route::post('order/index', [CustommerController::class, 'orderSingle'])->name('orders.index');
+
+});
 Route::get('product/details/{slug}', [HomeController::class, 'productDetails'])->name('frontend.product.details');
 Route::get('product/checkout/{slug}', [HomeController::class, 'chekoutProduct'])->name('frontend.product.checkout');
 
@@ -64,7 +80,6 @@ Route::get('/shop/comming/soon', [HomeController::class, 'commingsoon'])->name('
 
 //Poduct View modal with ajax
 Route::get('/product/view/modal/{id}', [HomeController::class, 'viewProduct']);
-Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
 Route::get('/product/cart/content/', [CartController::class, 'content']);
 
 //  mini cart
@@ -139,5 +154,14 @@ view()->composer('frontend.partials.footer', function ($view) {
 
 //Custome Page
 Route::get('{slug}', [PageController::class, 'index'])->name('page');
+
+// social login
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+
+
+
+
 
 

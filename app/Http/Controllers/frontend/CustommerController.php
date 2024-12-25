@@ -17,11 +17,11 @@ class CustommerController extends Controller
 {
     protected $customerRepository;
     public function __construct(CustomerRepositoryInterface $customerRepository){
-        $customerRepository = $customerRepository;
+        $this->customerRepository = $customerRepository;
     }
     public function index()
     {
-        return view('frontend.custommer.dashboard');
+        return view('frontend.account');
     }
     public function store(UserRequest $request){
         dd("test");
@@ -124,5 +124,13 @@ class CustommerController extends Controller
         return response()->json(array(
             'success' => "Coupon Remove successfully",
         ));
+    }
+
+    public function addToCart(Request $request, $product_id){
+        return $this->customerRepository->addToCart($request, auth()->user()->id, $product_id);
+    }
+
+    public function orderSingle(Request $request){
+        return $this->customerRepository->orderSingle($request, auth()->user()->id);
     }
 }

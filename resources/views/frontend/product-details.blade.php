@@ -300,19 +300,22 @@
                                                 </li>
                                                 <li class="col-5">
                                                     <a href="#" 
-                                                    class="theme-btn-1 btn btn-effect-1 d-add-to-cart" 
+                                                    class="theme-btn-1 btn btn-effect-1 d-add-to-cart add-to-cart" 
                                                     title="Add to Cart" 
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#add_to_cart_modal" 
                                                     data-product-name="{{ $data['product']->product_name_en }}" 
+                                                    data-product-id = "{{ $data['product']->id }}"
                                                     data-product-image="{{ asset($data['product']->image) }}" 
                                                     data-checkout-url="{{ route('frontend.product.checkout', ['slug'=>'slug']) }}">
                                                     <span>ADD TO CART</span>
                                                  </a>
                                                  <li class="col-5">
                                                     <a href="#" 
-                                                    class="theme-btn-1 btn btn-effect-1" 
+                                                    id="buy-product-btn"
+                                                    class="theme-btn-1 btn btn-effect-1 buy-product-btn" 
                                                     data-product-name="{{ $data['product']->product_name_en }}" 
+                                                    data-product-id="{{ $data['product']->id }}"
                                                     data-product-image="{{ asset($data['product']->image) }}" 
                                                     data-checkout-url="{{ route('frontend.product.checkout', ['slug'=>'slug']) }}">
                                                     <span>Buy Now</span>
@@ -711,277 +714,155 @@
         <!-- SHOP DETAILS TAB AREA END -->
 
         <!-- PRODUCT SLIDER AREA START -->
-        <div class="ltn__product-slider-area pb-40">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title-area text-center">
-                            <h1 class="section-title section-title-border">related products</h1>
+        @include('frontend.includes.product-details.relatated-product')
+        <!-- PRODUCT SLIDER AREA END -->
+        <!-- login modal start -->
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="text-center mb-3">
+                            <span>or</span>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-outline-danger" id="googleLoginButton">
+                                <i class="bi bi-google me-2"></i> Login with Google
+                            </button>
                         </div>
                     </div>
-                </div>
-                <div class="row ltn__related-product-slider-one-active slick-arrow-1">
-                    <!-- ltn__product-item -->
-                    <div class="col-12">
-                        <div class="ltn__product-item ltn__product-item-4">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="img/product/7.png" alt="#"></a>
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="badge-2">10%</li>
-                                    </ul>
-                                </div>
-                                <div class="product-hover-action product-hover-action-3">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">Pink Flower Tree</a></h2>
-                                <div class="product-price">
-                                    <span>$18.00</span>
-                                    <del>$21.00</del>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ltn__product-item -->
-                    <div class="col-12">
-                        <div class="ltn__product-item ltn__product-item-4">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="{{asset('img/product/4.png')}}" alt="#"></a>
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="badge-1">Hot</li>
-                                    </ul>
-                                </div>
-                                <div class="product-hover-action product-hover-action-3">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">Premium Joyful</a></h2>
-                                <div class="product-price">
-                                    <span>$18.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ltn__product-item -->
-                    <div class="col-12">
-                        <div class="ltn__product-item ltn__product-item-4">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="{{asset('img/product/6.png')}}" alt="#"></a>
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="badge-2">12%</li>
-                                    </ul>
-                                </div>
-                                <div class="product-hover-action product-hover-action-3">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">The White Rose</a></h2>
-                                <div class="product-price">
-                                    <span>$16.00</span>
-                                    <del>$19.00</del>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ltn__product-item -->
-                    <div class="col-12">
-                        <div class="ltn__product-item ltn__product-item-4">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="{{asset('img/product/10.png')}}" alt="#"></a>
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="badge-1">Hot</li>
-                                    </ul>
-                                </div>
-                                <div class="product-hover-action product-hover-action-3">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">Red Rose Bouquet</a></h2>
-                                <div class="product-price">
-                                    <span>$20.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ltn__product-item -->
-                    <div class="col-12">
-                        <div class="ltn__product-item ltn__product-item-4">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="{{asset('img/product/12.png')}}" alt="#"></a>
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="badge-1">Hot</li>
-                                    </ul>
-                                </div>
-                                <div class="product-hover-action product-hover-action-3">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-magnifier"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="icon-handbag"></i>
-                                        </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="icon-shuffle"></i>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">Heart's Desire</a></h2>
-                                <div class="product-price">
-                                    <span>$15.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
                 </div>
             </div>
         </div>
-        <!-- PRODUCT SLIDER AREA END -->
+        
+        
+        
+<!-- login modal end -->
 
 @endsection
 @section('scripts')
 <script>
-    $(document).ready(function () {
-        $('.d-add-to-cart').on('click', function (e) {
-            e.preventDefault();
+    document.getElementById('googleLoginButton').addEventListener('click', function () {
+        const popup = window.open(
+            '{{ route("login.google") }}',
+            'googleLogin',
+            'width=800,height=600,top=200,left=400'
+        );
 
-            // Fetch data attributes
-            var productName = $(this).data('product-name');
-            var productImage = $(this).data('product-image');
-            var checkoutUrl = $(this).data('checkout-url');
-
-            // Update modal content
-            $('#modal_product_name').text(productName); // Set product name
-            $('#modal_product_image').attr('src', productImage); // Set product image
-            $('#modal_checkout_link').attr('href', checkoutUrl); // Set checkout link
+        const checkPopup = setInterval(() => {
+            if (popup.closed) {
+                clearInterval(checkPopup);
+                // Reload or close the login modal after successful Google login
+                window.location.reload(); // Adjust based on your app's needs
+            }
+        }, 1000);
+    });
+</script>
+<script>
+   $(document).ready(function () {
+    $('.add-to-cart').on('click', function (e) {
+        e.preventDefault();
+        var productId = $(this).data('product-id');
+        var url = "{{ route('frontend.check-auth-status') }}"
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (response) {
+                if (response.is_guest) {
+                    // Show login modal for guests
+                    $('#loginModal').modal('show');
+                } else {
+                    // Proceed to add to cart for authenticated users
+                    addToCart(productId);
+                }
+            },
+            error: function () {
+                alert('An error occurred. Please try again.');
+            }
         });
     });
+
+    $('.buy-product-btn').on('click', function(e){
+        e.preventDefault();
+        var productId = $(this).data('product-id');
+        var url = "{{ route('frontend.check-auth-status') }}"
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (response) {
+                if (response.is_guest) {
+                    // Show login modal for guests
+                    $('#loginModal').modal('show');
+                } else {
+                    // Proceed to add to cart for authenticated users
+                    placeSingleOrder(productId);
+                }
+            },
+            error: function () {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    })
+
+    function addToCart(productId) {
+        
+        $.ajax({
+            url: '{{ route("user.cart.store", ["product_id" => "__PRODUCT_ID__"]) }}'.replace('__PRODUCT_ID__', productId),
+            type: 'POST',
+            data: {
+                quantity: 1,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                alert(response.message || 'Product added to cart!');
+            },
+            error: function () {
+                alert('An error occurred while adding the product to the cart.');
+            }
+        });
+    }
+
+    function placeSingleOrder(productId) {
+        var placeOrderUrl = "{{ route('user.order.single') }}"; // New route for single orders
+
+        $.ajax({
+            url: placeOrderUrl,
+            type: 'POST',
+            data: {
+                product_id: productId,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                if (response.message) {
+                    alert(response.message);
+                    window.location.href = "{{ route('user.orders.index') }}";
+                } else {
+                    alert("Order placed successfully!");
+                    window.location.href = "{{ route('user.orders.index') }}";
+                }
+            },
+            error: function(xhr, status, error) {
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    alert(xhr.responseJSON.message);
+                } else {
+                    alert('An error occurred placing the order: ' + error);
+                }
+            }
+        });
+    }
+});
 
 </script>
 @endsection

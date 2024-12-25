@@ -1,6 +1,26 @@
 @extends('frontend.layouts.app')
 @section('title', 'Login')
 @section('css')
+<style>
+    .btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4285F4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+}
+.btn-google:hover {
+    background-color: #357AE8;
+    text-decoration: none;
+    color: white;
+}
+
+</style>
 @endsection
 
 @section('content')
@@ -47,13 +67,22 @@
                         <div class="go-to-btn mt-20">
                             <a href="#"><small>FORGOTTEN YOUR PASSWORD?</small></a>
                         </div>
+                        <div class="or-text mt-30">
+                            <span>OR</span>
+                        </div>
+                        <div class="social-login mt-20">
+                            <a class="btn btn-google btn-block" id="googleLoginButton">
+                                <img src="{{ asset('images/google-icon.jpeg') }}" alt="Google Icon" style="width: 20px; margin-right: 10px;">
+                                Sign in with Google
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="account-create text-center pt-50">
                     <h4>DON'T HAVE AN ACCOUNT?</h4>
-                    <p>Add items to your wishlistget personalised recommendations <br> check out more quickly track your orders register</p>
+                    <p>Add items to your wishlist, get personalised recommendations <br> check out more quickly, and track your orders by registering.</p>
                     <div class="btn-wrapper">
                         <a href="register.html" class="theme-btn-1 btn black-btn">CREATE ACCOUNT</a>
                     </div>
@@ -66,4 +95,24 @@
 @endsection
 
 @section('scripts')
+<script>
+    $(document).ready(function() {
+        $('#googleLoginButton').click(function(e) {
+            e.preventDefault();
+            var popup = window.open(
+            '{{ route("login.google") }}',
+            'googleLogin',
+            'width=800,height=600,top=200,left=400'
+            );
+
+            var checkPopup = setInterval(function() {
+            if (popup.closed) {
+                clearInterval(checkPopup);
+                // Reload or close the login modal after successful Google login
+                window.location.reload(); // Adjust based on your app's needs
+            }
+            }, 1000);
+        });
+    });
+</script>
 @endsection

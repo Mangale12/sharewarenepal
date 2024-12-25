@@ -203,7 +203,7 @@
                             </a>
         
                             <!-- Thumbnail Images -->
-                            <div class="product-thumbnails mt-2">
+                            {{-- <div class="product-thumbnails mt-2">
                                 <ul class="d-flex justify-content-center">
                                     @foreach ($product->multi_images as $image) <!-- Assuming $product->images contains multiple images -->
                                     <li style="margin: 5px;">
@@ -218,7 +218,7 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                            </div>
+                            </div> --}}
         
                             <!-- Product Badge -->
                             <div class="product-badge">
@@ -237,12 +237,12 @@
                                             <i class="fas fa-search"></i>
                                         </a>
                                     </li>
-                                    <li class="add-to-cart">
+                                    {{-- <li class="add-to-cart">
                                         <a href="#" title="Add to Cart">
                                             <span class="cart-text d-none d-xl-block">Add to Cart</span>
                                             <span class="d-block d-xl-none"><i class="icon-handbag"></i></span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="#" title="Add to Favorite" style="height: 100%">
                                             <i></i>
@@ -711,9 +711,46 @@
             // Get the main image source and product ID from the clicked thumbnail
             var mainImageSrc = $(this).data('main-image');
             var productId = $(this).data('product-id');
-
             // Update the main image for the specific product
             $('#main-image-' + productId).attr('src', mainImageSrc);
+        });
+
+        $('.add-to-cart').on('click', function (e) {
+            e.preventDefault();
+
+            var productId = $(this).data('product-id');
+            var productName = $(this).data('product-name');
+            var productImage = $(this).data('main-image');
+            var checkoutUrl = $(this).data('checkout-url');
+
+            $.ajax({
+                url: '/cart/add',
+                type: 'POST',
+                data: {
+                    product_id: productId,
+                    quantity: 1, // Default quantity
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    if (response.status === 'success') {
+                        // Update modal content
+                        $('#modal_product_name').text(productName);
+                        $('#modal_product_image').attr('src', productImage);
+                        $('#modal_checkout_link').attr('href', checkoutUrl);
+
+                        // Show modal
+                        $('#cart-modal').show();
+                    }
+                },
+                error: function (xhr) {
+                    if (xhr.status === 401) {
+                        alert('Please login to add items to the cart.');
+                        window.location.href = '/login';
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                }
+            });
         });
     });
 

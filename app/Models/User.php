@@ -56,4 +56,7 @@ class User extends Authenticatable
     {
         return $this->wishlist->where('product_id', $product_id)->count() > 0;
     }
+    public function cartItems(){
+        return $this->hasMany(CartItem::class, 'user_id', 'id');
+    }
 }

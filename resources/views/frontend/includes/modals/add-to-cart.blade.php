@@ -22,7 +22,7 @@
                                                 <i class="fa fa-check-circle"></i> Successfully added to your Cart
                                             </p>
                                             <div class="btn-wrapper">
-                                                <a href="{{ route('frontend.cart') }}" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                                                <a href="{{ route('user.cart') }}" class="theme-btn-1 btn btn-effect-1">View Cart</a>
                                                 <a id="modal_checkout_link" href="#" class="theme-btn-2 btn btn-effect-2">Checkout</a>
                                             </div>
                                         </div>
