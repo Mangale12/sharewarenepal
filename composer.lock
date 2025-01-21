@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1675074f9174a1347417dca585afd56",
+    "content-hash": "11c0fa94b908ff10c875ce81ac07cad3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -206,13 +206,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
                 "laravel": {
                     "providers": [
                         "browner12\\helpers\\HelperServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -274,12 +274,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
-                    ],
                     "aliases": {
                         "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
-                    }
+                    },
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -1865,16 +1865,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v5.16.0",
+            "version": "v5.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "40a2dc98c53d9dc6d55eadb0d490d3d72b73f1bf"
+                "reference": "4e5be83c0b3ecf81b2ffa47092e917d1f79dce71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/40a2dc98c53d9dc6d55eadb0d490d3d72b73f1bf",
-                "reference": "40a2dc98c53d9dc6d55eadb0d490d3d72b73f1bf",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/4e5be83c0b3ecf81b2ffa47092e917d1f79dce71",
+                "reference": "4e5be83c0b3ecf81b2ffa47092e917d1f79dce71",
                 "shasum": ""
             },
             "require": {
@@ -1884,7 +1884,7 @@
                 "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
                 "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
                 "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
-                "league/oauth1-client": "^1.10.1",
+                "league/oauth1-client": "^1.11",
                 "php": "^7.2|^8.0",
                 "phpseclib/phpseclib": "^3.0"
             },
@@ -1933,7 +1933,7 @@
                 "issues": "https://github.com/laravel/socialite/issues",
                 "source": "https://github.com/laravel/socialite"
             },
-            "time": "2024-09-03T09:46:57+00:00"
+            "time": "2024-12-11T16:43:51+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2027,13 +2027,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Ui\\UiServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -2064,16 +2064,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "d150f911e0079e90ae3c106734c93137c184f932"
+                "reference": "d990688c91cedfb69753ffc2512727ec646df2ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d150f911e0079e90ae3c106734c93137c184f932",
-                "reference": "d150f911e0079e90ae3c106734c93137c184f932",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d990688c91cedfb69753ffc2512727ec646df2ad",
+                "reference": "d990688c91cedfb69753ffc2512727ec646df2ad",
                 "shasum": ""
             },
             "require": {
@@ -2167,7 +2167,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-12-07T15:34:16+00:00"
+            "time": "2024-12-29T14:10:59+00:00"
         },
         {
             "name": "league/config",
@@ -2403,16 +2403,16 @@
         },
         {
             "name": "league/oauth1-client",
-            "version": "v1.10.1",
+            "version": "v1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth1-client.git",
-                "reference": "d6365b901b5c287dd41f143033315e2f777e1167"
+                "reference": "f9c94b088837eb1aae1ad7c4f23eb65cc6993055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/d6365b901b5c287dd41f143033315e2f777e1167",
-                "reference": "d6365b901b5c287dd41f143033315e2f777e1167",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/f9c94b088837eb1aae1ad7c4f23eb65cc6993055",
+                "reference": "f9c94b088837eb1aae1ad7c4f23eb65cc6993055",
                 "shasum": ""
             },
             "require": {
@@ -2473,9 +2473,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/oauth1-client/issues",
-                "source": "https://github.com/thephpleague/oauth1-client/tree/v1.10.1"
+                "source": "https://github.com/thephpleague/oauth1-client/tree/v1.11.0"
             },
-            "time": "2022-04-15T14:02:14+00:00"
+            "time": "2024-12-10T19:59:05+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2581,16 +2581,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.72.5",
+            "version": "2.72.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "afd46589c216118ecd48ff2b95d77596af1e57ed"
+                "url": "https://github.com/CarbonPHP/carbon.git",
+                "reference": "1e9d50601e7035a4c61441a208cb5bed73e108c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/afd46589c216118ecd48ff2b95d77596af1e57ed",
-                "reference": "afd46589c216118ecd48ff2b95d77596af1e57ed",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/1e9d50601e7035a4c61441a208cb5bed73e108c5",
+                "reference": "1e9d50601e7035a4c61441a208cb5bed73e108c5",
                 "shasum": ""
             },
             "require": {
@@ -2610,7 +2610,7 @@
                 "doctrine/orm": "^2.7 || ^3.0",
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
-                "ondrejmirtes/better-reflection": "*",
+                "ondrejmirtes/better-reflection": "<6",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12.99 || ^1.7.14",
@@ -2623,10 +2623,6 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev",
-                    "dev-2.x": "2.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Carbon\\Laravel\\ServiceProvider"
@@ -2636,6 +2632,10 @@
                     "includes": [
                         "extension.neon"
                     ]
+                },
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev",
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -2684,7 +2684,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-03T19:18:41+00:00"
+            "time": "2024-12-27T09:28:11+00:00"
         },
         {
             "name": "nette/schema",
@@ -2836,16 +2836,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.3.1",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b"
+                "reference": "447a020a1f875a434d62f2a401f53b82a396e494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8eea230464783aa9671db8eea6f8c6ac5285794b",
-                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/447a020a1f875a434d62f2a401f53b82a396e494",
+                "reference": "447a020a1f875a434d62f2a401f53b82a396e494",
                 "shasum": ""
             },
             "require": {
@@ -2888,9 +2888,49 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
             },
-            "time": "2024-10-08T18:51:32+00:00"
+            "time": "2024-12-30T11:07:19+00:00"
+        },
+        {
+            "name": "nowpayments/nowpayments-api-php",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NowPaymentsIO/nowpayments-api-php.git",
+                "reference": "b3bce49d8b68369ac772a8c2d8d08846560d5109"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NowPaymentsIO/nowpayments-api-php/zipball/b3bce49d8b68369ac772a8c2d8d08846560d5109",
+                "reference": "b3bce49d8b68369ac772a8c2d8d08846560d5109",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "bogdanaks",
+                    "email": "bogdanaks@bk.ru"
+                }
+            ],
+            "description": "PHP Library",
+            "homepage": "https://github.com/NowPaymentsIO/nowpayments-api-php",
+            "support": {
+                "issues": "https://github.com/NowPaymentsIO/nowpayments-api-php/issues",
+                "source": "https://github.com/NowPaymentsIO/nowpayments-api-php/tree/main"
+            },
+            "time": "2021-09-08T15:46:41+00:00"
         },
         {
             "name": "opis/closure",
@@ -3151,16 +3191,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.42",
+            "version": "3.0.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "db92f1b1987b12b13f248fe76c3a52cadb67bb98"
+                "reference": "709ec107af3cb2f385b9617be72af8cf62441d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/db92f1b1987b12b13f248fe76c3a52cadb67bb98",
-                "reference": "db92f1b1987b12b13f248fe76c3a52cadb67bb98",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/709ec107af3cb2f385b9617be72af8cf62441d02",
+                "reference": "709ec107af3cb2f385b9617be72af8cf62441d02",
                 "shasum": ""
             },
             "require": {
@@ -3241,7 +3281,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.42"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.43"
             },
             "funding": [
                 {
@@ -3257,7 +3297,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-16T03:06:04+00:00"
+            "time": "2024-12-14T21:12:59+00:00"
         },
         {
             "name": "psr/clock",
@@ -3561,16 +3601,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.6",
+            "version": "v0.12.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "3b5ea0efaa791cd1c65ecc493aec3e2aa55ff57c"
+                "reference": "d73fa3c74918ef4522bb8a3bf9cab39161c4b57c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/3b5ea0efaa791cd1c65ecc493aec3e2aa55ff57c",
-                "reference": "3b5ea0efaa791cd1c65ecc493aec3e2aa55ff57c",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/d73fa3c74918ef4522bb8a3bf9cab39161c4b57c",
+                "reference": "d73fa3c74918ef4522bb8a3bf9cab39161c4b57c",
                 "shasum": ""
             },
             "require": {
@@ -3634,9 +3674,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.6"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.7"
             },
-            "time": "2024-12-07T20:08:52+00:00"
+            "time": "2024-12-10T01:58:33+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -4391,12 +4431,12 @@
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/contracts",
+                    "name": "symfony/contracts"
+                },
                 "branch-alias": {
                     "dev-main": "3.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
@@ -4610,12 +4650,12 @@
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/contracts",
+                    "name": "symfony/contracts"
+                },
                 "branch-alias": {
                     "dev-main": "3.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
@@ -5108,8 +5148,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -5816,12 +5856,12 @@
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/contracts",
+                    "name": "symfony/contracts"
+                },
                 "branch-alias": {
                     "dev-main": "3.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
@@ -6075,12 +6115,12 @@
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/contracts",
+                    "name": "symfony/contracts"
+                },
                 "branch-alias": {
                     "dev-main": "3.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
@@ -6225,31 +6265,33 @@
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "v2.2.7",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-                "reference": "83ee6f38df0a63106a9e4536e3060458b74ccedb"
+                "reference": "0d72ac1c00084279c1816675284073c5a337c20d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/83ee6f38df0a63106a9e4536e3060458b74ccedb",
-                "reference": "83ee6f38df0a63106a9e4536e3060458b74ccedb",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/0d72ac1c00084279c1816675284073c5a337c20d",
+                "reference": "0d72ac1c00084279c1816675284073c5a337c20d",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
-                "php": "^5.5 || ^7.0 || ^8.0",
-                "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0"
+                "php": "^7.4 || ^8.0",
+                "symfony/css-selector": "^5.4 || ^6.0 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5 || ^8.5.21 || ^9.5.10"
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^8.5.21 || ^9.5.10"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -6272,9 +6314,9 @@
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
                 "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
-                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
+                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.3.0"
             },
-            "time": "2023-12-08T13:03:43+00:00"
+            "time": "2024-12-21T16:25:41+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6750,16 +6792,16 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev"
-                },
                 "laravel": {
-                    "providers": [
-                        "Facade\\Ignition\\IgnitionServiceProvider"
-                    ],
                     "aliases": {
                         "Flare": "Facade\\Ignition\\Facades\\Flare"
-                    }
+                    },
+                    "providers": [
+                        "Facade\\Ignition\\IgnitionServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -8951,12 +8993,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }

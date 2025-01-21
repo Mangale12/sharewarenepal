@@ -17,6 +17,9 @@ use App\Http\Controllers\frontend\CustommerController;
 use App\Models\Product;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NowPaymentsController;
+
+
 
 Route::get('/payment', function () {
     return view('frontend.crypto');
@@ -36,6 +39,11 @@ Route::get('/clear', [DashboardController::class, 'cache'])->name('cache');
 
 
 //Multi language
+Route::get('test', function(){
+    dd('test');
+})->name('language.english');
+
+
 Route::get('language/english', [LanguageController::class, 'English'])->name('language.english');
 Route::get('language/bangla',  [LanguageController::class, 'Bangla'])->name('language.bangla');
 
@@ -160,8 +168,20 @@ Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 
+Route::post('/payments/create', [PaymentController::class, 'createPayment'])->name('payment.create');
+Route::post('/payments/callback', [PaymentController::class, 'paymentCallback'])->name('payment.callback');
+Route::get('/payment/form', [NowPaymentsController::class, 'form'])->name('payment.form');
+Route::get('/payment/list', [NowPaymentsController::class, 'fetchCurrencies'])->name('payment.list');
+
+Route::post('/nowpayments/invoice', [NowPaymentsController::class, 'createInvoice'])->name('nowpayments.create');
+Route::post('/nowpayments/ipn', [NowPaymentsController::class, 'ipn'])->name('nowpayments.ipn');
+Route::get('/nowpayments/success', [NowPaymentsController::class, 'success'])->name('nowpayments.success');
+Route::get('/nowpayments/cancel', [NowPaymentsController::class, 'cancel'])->name('nowpayments.cancel');
+
+// Example routes for handling redirects:
+Route::get('/payment/success', function () { return view('payment.success'); })->name('payment.success');
+Route::get('/payment/cancel', function () { return view('payment.cancel'); })->name('payment.cancel');
 
 
-
-
-
+Route::get('/list', [NowPaymentsController::class, 'fetchCurrencies'])->name('fetch.currencies');
+Route::post('/process-payment', [NowPaymentsController::class, 'processPayment'])->name('process.payment');

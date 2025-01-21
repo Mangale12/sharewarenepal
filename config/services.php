@@ -42,6 +42,12 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    'nowpayments' => [
+        'api_key' => env('NOWPAYMENTS_API_KEY'),
+        'base_url' => env('NOWPAYMENTS_BASE_URL', 'https://api.nowpayments.io'),
+    ],
+
+
 
 
 ];
